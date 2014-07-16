@@ -2,3 +2,7 @@
 /Temp
 /obj
 *.meta
+/Assembly-UnityScript-vs.unityproj
+/Assembly-UnityScript.unityproj
+/cssinco.userprefs
+/test.apk
