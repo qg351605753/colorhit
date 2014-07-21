@@ -49,6 +49,7 @@
      <Compile Include="Assets\Script\Background.cs" />
      <Compile Include="Assets\Script\Cube.cs" />
      <Compile Include="Assets\Script\Distance.cs" />
+     <Compile Include="Assets\Script\Gameover.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Secai.cs" />
   </ItemGroup>
