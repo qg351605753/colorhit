@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private static int green = 0;
     private static int yellow = 0;
     private static int red = 0;
-
+    private string changeColor;
 
     public static int RED { get { return red; } }
     public static int GREEN { get { return green; } }
@@ -95,8 +95,9 @@ public class Player : MonoBehaviour
         else if (collisionInfo.gameObject.tag == "GameController")
         {
             Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
-            Destroy(collisionInfo.gameObject);
-            renderer.material.color = Color.blue;
+            Destroy(collisionInfo.gameObject);           
+            Color changeColor = new Color(0, 0.686f, 1, 0);
+            renderer.material.color = changeColor;
             blue++;
             green = 0;
             yellow = 0;
@@ -117,7 +118,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
             Destroy(collisionInfo.gameObject);
-            renderer.material.color = Color.green;
+           renderer.material.color = Color.green;
+           
             green++;
             yellow = 0;
             blue = 0;
@@ -131,6 +133,8 @@ public class Player : MonoBehaviour
             }
             else if (green > 2)
             {
+                //
+
                 Secai.point += 6;
             }
         }
@@ -153,6 +157,7 @@ public class Player : MonoBehaviour
             else if (yellow > 2)
             {
                 Secai.point += 6;
+                
             }
         }
     }

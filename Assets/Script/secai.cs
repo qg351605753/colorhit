@@ -21,6 +21,7 @@ public class Secai : MonoBehaviour
     public static float Cubespeed { get { return speed; } }
     private float timestart;
     private bool begin=false;
+    private bool showtitle=true;
     // GUI.WindowFunction windowFunction;
     void OnGUI()
     {
@@ -28,6 +29,7 @@ public class Secai : MonoBehaviour
         {           
             Vector2 velocity = new Vector2(0, -5);
             rigidbody2D.velocity = velocity;
+            StartCoroutine(Wait());
         }
     }
 
@@ -35,6 +37,7 @@ public class Secai : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+           
            recordtimes = PlayerPrefs.GetInt("recordtimes", 0);
            speed = 3.0f;
            point = 0;
@@ -47,8 +50,13 @@ public class Secai : MonoBehaviour
         int Startproduce = 0;
         
         float juli;
-        
-        GameObject.Find("title Text").GetComponent<GUIText>().text = "色彩撞击";
+        if (showtitle == true)
+        {
+            GameObject.Find("title Text").GetComponent<GUIText>().text = "色彩撞击";
+        }
+        else {
+            GameObject.Find("title Text").GetComponent<GUIText>().text = "";
+        }      
         timer = Time.time - timestart;
         if (begin)
         {
@@ -157,4 +165,8 @@ public class Secai : MonoBehaviour
             PlayerPrefs.SetInt("recordtimes", recordtimes);
         }
     }
+  IEnumerator Wait() {
+      yield return new WaitForSeconds(2.0f);
+      showtitle = false;
+  }
 }

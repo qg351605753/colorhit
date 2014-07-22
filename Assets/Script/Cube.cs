@@ -4,6 +4,7 @@ using System.Collections;
 public class Cube : MonoBehaviour
 {
     public GameObject gameObject;
+    public static float presentvelocity;
    
     
     // Use this for initialization
@@ -11,6 +12,7 @@ public class Cube : MonoBehaviour
     {
        
         rigidbody.velocity = new Vector3(0,( 3.00f+0.02f*Secai.Cubespeed), 0);
+        presentvelocity = 3.00f + 0.02f * Secai.Cubespeed;
     }
 
     // Update is called once per frame
