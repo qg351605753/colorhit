@@ -46,12 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\BackMain.cs" />
      <Compile Include="Assets\Script\Background.cs" />
      <Compile Include="Assets\Script\Cube.cs" />
+     <Compile Include="Assets\Script\CubeMove.cs" />
      <Compile Include="Assets\Script\Distance.cs" />
+     <Compile Include="Assets\Script\GameBegin.cs" />
+     <Compile Include="Assets\Script\GameName.cs" />
+     <Compile Include="Assets\Script\GameShare.cs" />
+     <Compile Include="Assets\Script\GameTrad.cs" />
      <Compile Include="Assets\Script\Gameover.cs" />
+     <Compile Include="Assets\Script\PlaneMove.cs" />
      <Compile Include="Assets\Script\Player.cs" />
-     <Compile Include="Assets\Script\Secai.cs" />
+     <Compile Include="Assets\Script\secai.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

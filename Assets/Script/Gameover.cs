@@ -26,7 +26,8 @@ public class Gameover : MonoBehaviour
             {
                 if (hit.transform.name == "retry")
                 {
-                   
+                    PlaneMove.reach = false;
+                    GameBegin.IsBegin = false;
                     Application.LoadLevelAsync("menu");
                 }
             }
