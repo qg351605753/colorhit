@@ -50,6 +50,8 @@ public class GameBegin : MonoBehaviour {
                     GameBeginBig.active = true;
                     GameBeginSmall.active = false;
                     GameBeginBtn.active = false;
+                    /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
+                    m_ani.enabled = false;*/
                     
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");

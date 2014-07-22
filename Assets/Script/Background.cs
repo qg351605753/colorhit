@@ -24,7 +24,7 @@ public class Background : MonoBehaviour {
 
         if (GameBegin.IsBegin) {
             transform.position = Vector3.MoveTowards(transform.position, backgroundPosition, UnityEngine.Time.smoothDeltaTime * 4);
-            if (transform.position.y < -9.9f) {
+            if (transform.position.y < -10.9f) {
                 reach = true;
             }
         }

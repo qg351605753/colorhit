@@ -38,7 +38,7 @@ public class BackMain : MonoBehaviour {
         
         if (IsBack)
         {
-            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 2);
+            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 1);
         }
         if (transform.position == backPosition)
         {

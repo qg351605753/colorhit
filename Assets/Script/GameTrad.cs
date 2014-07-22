@@ -20,7 +20,7 @@ public class GameTrad : MonoBehaviour {
 
             if (Physics.Raycast(pos, out hit))
             {
-                if (hit.transform.name == "GameBeginBtn")
+                if (hit.transform.name == "GameTradBtn")
                 {
 
                     // Debug.Log("click");
@@ -44,7 +44,7 @@ public class GameTrad : MonoBehaviour {
 
             if (Physics.Raycast(pos, out hit))
             {
-                if (hit.transform.name == "GameBeginBtn")
+                if (hit.transform.name == "GameTradBtn")
                 {
 
                     // Debug.Log("click");

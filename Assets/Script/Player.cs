@@ -107,19 +107,20 @@ public class Player : MonoBehaviour
             if (blue == 1)
             {
                 Secai.point += 1;
+                speedDown.active = false;
+                protect.active = false;
                
             }
             else if (blue == 2)
             {
                 Secai.point += 2;
-                speedRush.active = true;
-                speedDown.active = false;
-                protect.active = false;
+
 
             }
             else if (blue > 2)
             {
                 Secai.point += 6;
+                speedRush.active = true;
             }
         }
         else if (collisionInfo.gameObject.tag == "EditorOnly")
@@ -134,20 +135,21 @@ public class Player : MonoBehaviour
             if (green == 1)
             {
                 Secai.point += 1;
-                
+                protect.active = false;
+                speedRush.active = false;
             }
             else if (green == 2)
             {
                 Secai.point += 2;
-                speedRush.active = false;
-                speedDown.active = true;
-                protect.active = false;
+
                 
             }
             else if (green > 2)
             {
                 //
-
+                
+                speedDown.active = true;
+                
                 Secai.point += 6;
             }
         }
@@ -162,17 +164,19 @@ public class Player : MonoBehaviour
             if (yellow == 1)
             {
                 Secai.point += 1;
+                speedRush.active = false;
+                speedDown.active = false;
             }
             else if (yellow == 2)
             {
                 Secai.point += 2;
-                protect.active = true;
-                speedRush.active = false;
-                speedDown.active = false;
+                
             }
             else if (yellow > 2)
             {
                 Secai.point += 6;
+                protect.active = true;
+
                 
             }
         }
