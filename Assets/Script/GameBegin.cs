@@ -22,48 +22,44 @@ public class GameBegin : MonoBehaviour {
                 if (hit.transform.name == "GameBeginBtn")
                 {
                    
-                    Debug.Log("click");
+                    // Debug.Log("click");
                     //IsBegin = true;
                     
-                    //GameBeginBig.active = false;
-                    //GameBeginSmall.active = true;
+                    GameBeginBig.active = false;
+                    GameBeginSmall.active = true;
 
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;
-
-                    Animator m_ani = GameObject.Find("cloud2").GetComponent<Animator>();
-                    m_ani.enabled = false;
-                    //GameObject.Find("cloud2").transform.position.x = 0f;
+                    
+                    
                 }
             }
         }else if (Input.GetMouseButtonUp(0))
         {
-            Animator m_ani = GameObject.Find("cloud2").GetComponent<Animator>();
-            m_ani.enabled = true;
-            m_ani.SetBool("cloud2", true);
-            //m_ani.playbackTime = 1.0f;
-            /*Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
-             RaycastHit hit;
+            Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-             if (Physics.Raycast(pos, out hit))
-             {
-                 if (hit.transform.name == "GameBeginBtn")
-                 {
+            if (Physics.Raycast(pos, out hit))
+            {
+                if (hit.transform.name == "GameBeginBtn")
+                {
 
-                     // Debug.Log("click");
-                     IsBegin = true;
-                     GameBeginBig.active = true;
-                     GameBeginSmall.active = false;
-                     GameBeginBtn.active = false;
+                    // Debug.Log("click");
+                    IsBegin = true;
+                    GameBeginBig.active = true;
+                    GameBeginSmall.active = false;
+                    GameBeginBtn.active = false;
+                    /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
+                    m_ani.enabled = false;*/
                     
-                     //Material mt = Background.materials[0];
-                     //mt = (Material)GameObject.Find("ClickedBackground");
-                     //ClickedBackground.active = false;
+                    //Material mt = Background.materials[0];
+                    //mt = (Material)GameObject.Find("ClickedBackground");
+                    //ClickedBackground.active = false;
 
 
-                 }
-             }*/
+                }
+            }
         }
         if (GameTrad.IsTrad)
         {

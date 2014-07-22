@@ -6,9 +6,9 @@ public class PlaneMove : MonoBehaviour {
     //Vector3 startPos;
     //Vector3 velocity;
     public static bool reach = false;
-    Vector3 gamePosition =new Vector3(0, -10, 1);
-    Vector3 tradPosition = new Vector3(0, 10, 1);
-    Vector3 sharePosition = new Vector3(0, 10, 1);
+    Vector3 gamePosition =new Vector3(0, -11, 1);
+    Vector3 tradPosition = new Vector3(0, 11, 1);
+    Vector3 sharePosition = new Vector3(0, 11, 1);
     Vector3 backPosition = new Vector3(0, 0, 1);
     //RaycastHit hit = new RaycastHit();
    // float speed = 1.0f;  
@@ -39,10 +39,10 @@ public class PlaneMove : MonoBehaviour {
         {
             transform.position = Vector3.MoveTowards(transform.position, tradPosition, UnityEngine.Time.smoothDeltaTime * 4);
         }
-         if (GameShare.IsShare)
+         /*if (GameShare.IsShare)
          {
              transform.position = Vector3.MoveTowards(transform.position, sharePosition, UnityEngine.Time.smoothDeltaTime * 4);
-         }
+         }*/
          if (BackMain.IsBack)
          {
              //GameBegin.IsBegin = false;
