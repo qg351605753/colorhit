@@ -107,8 +107,8 @@ public class Player : MonoBehaviour
             if (blue == 1)
             {
                 Secai.point += 1;
-                speedDown.active = false;
-                protect.active = false;
+                //speedDown.active = false;
+                //protect.active = false;
                
             }
             else if (blue == 2)
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
             else if (blue > 2)
             {
                 Secai.point += 6;
-                speedRush.active = true;
+                //speedRush.active = true;
             }
         }
         else if (collisionInfo.gameObject.tag == "EditorOnly")
@@ -135,8 +135,8 @@ public class Player : MonoBehaviour
             if (green == 1)
             {
                 Secai.point += 1;
-                protect.active = false;
-                speedRush.active = false;
+               // protect.active = false;
+               // speedRush.active = false;
             }
             else if (green == 2)
             {
@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
             {
                 //
                 
-                speedDown.active = true;
+                //speedDown.active = true;
                 
                 Secai.point += 6;
             }
@@ -164,8 +164,8 @@ public class Player : MonoBehaviour
             if (yellow == 1)
             {
                 Secai.point += 1;
-                speedRush.active = false;
-                speedDown.active = false;
+                //speedRush.active = false;
+               // speedDown.active = false;
             }
             else if (yellow == 2)
             {
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
             else if (yellow > 2)
             {
                 Secai.point += 6;
-                protect.active = true;
+               // protect.active = true;
 
                 
             }
