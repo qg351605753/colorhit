@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Secai : MonoBehaviour
 {
+   // public GameObject player;
     public Camera cam;
     public Transform Prefabblue;
     public Transform Prefabgreen;
@@ -13,23 +14,24 @@ public class Secai : MonoBehaviour
     public static float timer;
     public static int recordtimes;
 
+
     private float cubeX;
     private bool FirstCube = false;
     private bool suiji = false;
     private static float speed;
-    Rect windowRect = new Rect(20, 20, 100, 50);
+    //Rect windowRect = new Rect(20, 20, 100, 50);
     public static float Cubespeed { get { return speed; } }
     private float timestart;
     private bool begin=false;
     // GUI.WindowFunction windowFunction;
-    void OnGUI()
+    /*void OnGUI()
     {
         if (GUI.Button(new Rect(500, 700, 100, 50), "开始游戏"))
         {           
             Vector2 velocity = new Vector2(0, -5);
             rigidbody2D.velocity = velocity;
         }
-    }
+    }*/
 
 
     // Use this for initialization
@@ -48,14 +50,15 @@ public class Secai : MonoBehaviour
         
         float juli;
         
-        GameObject.Find("title Text").GetComponent<GUIText>().text = "色彩撞击";
+        //GameObject.Find("title Text").GetComponent<GUIText>().text = "色彩撞击";
         timer = Time.time - timestart;
         if (begin)
         {
         GameObject.Find("time Text").GetComponent<GUIText>().text = "时间：" + timer.ToString(".000");
         GameObject.Find("point Text").GetComponent<GUIText>().text = "分数：" + point;
         }
-        if (Startproduce == 0 && cam.transform.position.y < -10f)
+      //  if (Startproduce == 0 && cam.transform.position.y < -10f)
+        if (Startproduce == 0 && PlaneMove.reach)
         {
             Player.playerstar = true;
             Startproduce = 1;
@@ -63,7 +66,7 @@ public class Secai : MonoBehaviour
             {
                 FirstCube = true;
                 Debug.Log(FirstCube + " -------- :FirstCube");               
-                ob = (Transform)Instantiate(getColorPref(), new Vector3(0, -15, 0), Quaternion.identity);
+                ob = (Transform)Instantiate(getColorPref(), new Vector3(0, -5, 0), Quaternion.identity);
                 timestart = Time.time;
             }
         }
@@ -102,7 +105,7 @@ public class Secai : MonoBehaviour
                 cubeX = Random.Range(-2.50f, 2.50f);
             }
 
-            Background.Move();
+           // Background.Move();
             if (Background.test == 1)
             {
                 Vector2 velocity = new Vector2(0, 0);
@@ -114,10 +117,10 @@ public class Secai : MonoBehaviour
                 rigidbody2D.velocity = velocity;
             }
 
-            if ((15 + ob.position.y) > juli)
+            if ((5 + ob.position.y) > juli)
             {
             
-                ob = (Transform)Instantiate(getColorPref(), new Vector3(cubeX, -15, 0), Quaternion.identity);
+                ob = (Transform)Instantiate(getColorPref(), new Vector3(cubeX, -5, 0), Quaternion.identity);
                 speed++;
                 Debug.LogError("speed: " + speed);
  

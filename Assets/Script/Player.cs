@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     public Transform Prefabred;
     public Transform Prefabyellow;
 
+    public GameObject protect;
+    public GameObject speedDown;
+    public GameObject speedRush;
 
     private static int blue = 0;
     private static int green = 0;
@@ -43,7 +46,7 @@ public class Player : MonoBehaviour
             int i = 1;
 
             //是否刚刚触屏
-            // while (i < Input.touchCount)
+           // while (i < Input.touchCount)
             //{
             Debug.Log("i:" + i + " Touch Count:" + Input.touchCount);
             if (Input.GetTouch(0).phase == TouchPhase.Began)
@@ -81,7 +84,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    // }
+  //   }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
@@ -103,10 +106,15 @@ public class Player : MonoBehaviour
             if (blue == 1)
             {
                 Secai.point += 1;
+               
             }
             else if (blue == 2)
             {
                 Secai.point += 2;
+                speedRush.active = true;
+                speedDown.active = false;
+                protect.active = false;
+
             }
             else if (blue > 2)
             {
@@ -124,10 +132,15 @@ public class Player : MonoBehaviour
             if (green == 1)
             {
                 Secai.point += 1;
+                
             }
             else if (green == 2)
             {
                 Secai.point += 2;
+                speedRush.active = false;
+                speedDown.active = true;
+                protect.active = false;
+                
             }
             else if (green > 2)
             {
@@ -149,6 +162,9 @@ public class Player : MonoBehaviour
             else if (yellow == 2)
             {
                 Secai.point += 2;
+                protect.active = true;
+                speedRush.active = false;
+                speedDown.active = false;
             }
             else if (yellow > 2)
             {
@@ -161,5 +177,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         Application.LoadLevelAsync("Gameover");
+
     }
 }
