@@ -123,6 +123,7 @@ public class Player : MonoBehaviour
             {
                 Secai.point += 6;
                // speedRush.active = true;
+
             }
         }
         else if (collisionInfo.gameObject.tag == "EditorOnly")

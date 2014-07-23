@@ -20,6 +20,7 @@ public class GameBegin : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, retrunPosition, UnityEngine.Time.smoothDeltaTime * 3);
         }
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -62,7 +63,7 @@ public class GameBegin : MonoBehaviour
                     IsBegin = true;
                     GameBeginBig.active = true;
                     GameBeginSmall.active = false;
-                   
+
                     //GameBeginBtn.active = false;
                     /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
                     m_ani.enabled = false;*/
@@ -78,7 +79,6 @@ public class GameBegin : MonoBehaviour
         if (IsBegin)
         {
             transform.position = Vector3.MoveTowards(transform.position, beginPosition, UnityEngine.Time.smoothDeltaTime * 3);
-          
         }
         if (GameTrad.IsTrad)
         {

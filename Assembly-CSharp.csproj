@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\BackMain.cs" />
      <Compile Include="Assets\Script\Background.cs" />
+     <Compile Include="Assets\Script\Cloud.cs" />
      <Compile Include="Assets\Script\Cube.cs" />
      <Compile Include="Assets\Script\CubeMove.cs" />
      <Compile Include="Assets\Script\Distance.cs" />
