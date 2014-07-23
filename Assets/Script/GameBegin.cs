@@ -4,11 +4,12 @@ using System.Collections;
 public class GameBegin : MonoBehaviour {
 
     public GameObject GameBeginSmall;
-    public GameObject GameBeginBtn;
+    //public GameObject GameBeginBtn;
     public GameObject GameBeginBig;
     public static bool IsBegin = false;
     Vector3 targetPosition = new Vector3(-1, 10, 0);
     Vector3 backPosition = new Vector3(-1, 0, 0);
+    Vector3 beginPosition = new Vector3(-1, -8, 0);
 	
 	// Update is called once per frame
 	void Update () {
@@ -49,7 +50,7 @@ public class GameBegin : MonoBehaviour {
                     IsBegin = true;
                     GameBeginBig.active = true;
                     GameBeginSmall.active = false;
-                    GameBeginBtn.active = false;
+                    //GameBeginBtn.active = false;
                     /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
                     m_ani.enabled = false;*/
                     
@@ -61,13 +62,17 @@ public class GameBegin : MonoBehaviour {
                 }
             }
         }
+        if (IsBegin)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, beginPosition, UnityEngine.Time.smoothDeltaTime * 3);
+        }
         if (GameTrad.IsTrad)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 3);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 4);
         }
         if (BackMain.IsBack)
         {
-            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 3);
+            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 4);
         }
 	}
 

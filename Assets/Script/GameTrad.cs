@@ -67,10 +67,12 @@ public class GameTrad : MonoBehaviour {
         }
         if (IsTrad)
         {
+
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 3);
         }
         if (BackMain.IsBack)
         {
+            IsTrad = false;
             transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 3);
         }
 
