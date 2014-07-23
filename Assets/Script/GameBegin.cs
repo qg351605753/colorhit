@@ -1,17 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameBegin : MonoBehaviour {
+public class GameBegin : MonoBehaviour
+{
 
     public GameObject GameBeginSmall;
-    public GameObject GameBeginBtn;
+    //public GameObject GameBeginBtn;
     public GameObject GameBeginBig;
     public static bool IsBegin = false;
     Vector3 targetPosition = new Vector3(-1, 10, 0);
     Vector3 backPosition = new Vector3(-1, 0, 0);
-	
-	// Update is called once per frame
-	void Update () {
+    Vector3 beginPosition = new Vector3(-1, -8, 0);
+    Vector3 retrunPosition = new Vector3(-1, 0, 0);
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (End.destroycube)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, retrunPosition, UnityEngine.Time.smoothDeltaTime * 3);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -21,21 +29,26 @@ public class GameBegin : MonoBehaviour {
             {
                 if (hit.transform.name == "GameBeginBtn")
                 {
-                   
+
                     // Debug.Log("click");
                     //IsBegin = true;
-                    
+                    Secai.FirstCube = false;
+                    Secai.Startproduce = 0;
+                    End.destroycube = false;
+                    Player.pauseeverything = false;
+                    End.startretrunde = false;
                     GameBeginBig.active = false;
                     GameBeginSmall.active = true;
-
+                   
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;
-                    
-                    
+
+
                 }
             }
-        }else if (Input.GetMouseButtonUp(0))
+        }
+        else if (Input.GetMouseButtonUp(0))
         {
             Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -49,10 +62,11 @@ public class GameBegin : MonoBehaviour {
                     IsBegin = true;
                     GameBeginBig.active = true;
                     GameBeginSmall.active = false;
-                    GameBeginBtn.active = false;
+                   
+                    //GameBeginBtn.active = false;
                     /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
                     m_ani.enabled = false;*/
-                    
+
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;
@@ -61,15 +75,20 @@ public class GameBegin : MonoBehaviour {
                 }
             }
         }
+        if (IsBegin)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, beginPosition, UnityEngine.Time.smoothDeltaTime * 3);
+          
+        }
         if (GameTrad.IsTrad)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 3);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 4);
         }
         if (BackMain.IsBack)
         {
-            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 3);
+            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 4);
         }
-	}
+    }
 
 
 }

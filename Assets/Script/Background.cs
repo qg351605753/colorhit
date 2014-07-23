@@ -14,7 +14,7 @@ public class Background : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("test:" + test);
+       // Debug.Log("test:" + test);
        // if (Backgroundmove == 1)
        // {
               //  Vector2 velocity = new Vector2(0, -3);

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Secai : MonoBehaviour
 {
-   // public GameObject player;
+    public GameObject player;
     public Camera cam;
     public Transform Prefabblue;
     public Transform Prefabgreen;
@@ -13,16 +13,17 @@ public class Secai : MonoBehaviour
     public static int point ;
     public static float timer;
     public static int recordtimes;
-
+    public static bool showover = false;
+    public static bool FirstCube = false;
 
     private float cubeX;
-    private bool FirstCube = false;
     private bool suiji = false;
-    private static float speed;
+    public static float speed;
     //Rect windowRect = new Rect(20, 20, 100, 50);
-    public static float Cubespeed { get { return speed; } }
+   // public static float Cubespeed { get { return speed; }}
     private float timestart;
     private bool begin=false;
+    public static int Startproduce=0;
 
     // GUI.WindowFunction windowFunction;
     /*void OnGUI()
@@ -38,6 +39,7 @@ public class Secai : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+          
            recordtimes = PlayerPrefs.GetInt("recordtimes", 0);
            speed = 3.0f;
            point = 0;
@@ -46,8 +48,23 @@ public class Secai : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        int Startproduce = 0;
+        if (showover)
+        {
+            GameObject.Find("retry").renderer.enabled = true;
+            GameObject.Find("Cube").renderer.enabled = true;
+            GameObject.Find("returned").renderer.enabled = true;
+            GameObject.Find("record Text").GetComponent<GUIText>().text = "分数：" + point;
+            GameObject.Find("most Text").GetComponent<GUIText>().text = "最高纪录" + recordtimes;
+            Debug.Log("showover");
+        }
+        else {
+            GameObject.Find("retry").renderer.enabled = false;
+            GameObject.Find("Cube").renderer.enabled = false;
+            GameObject.Find("returned").renderer.enabled = false;
+            GameObject.Find("record Text").GetComponent<GUIText>().text = "" ;
+            GameObject.Find("most Text").GetComponent<GUIText>().text = "";
+        }
+        
         
         float juli;
         
@@ -55,7 +72,7 @@ public class Secai : MonoBehaviour
         timer = Time.time - timestart;
         if (begin)
         {
-        GameObject.Find("time Text").GetComponent<GUIText>().text = "时间：" + timer.ToString(".000");
+        //GameObject.Find("time Text").GetComponent<GUIText>().text = "时间：" + timer.ToString(".000");
         GameObject.Find("point Text").GetComponent<GUIText>().text = "分数：" + point;
         }
 
@@ -67,7 +84,7 @@ public class Secai : MonoBehaviour
             if (FirstCube == false)
             {
                 FirstCube = true;
-                Debug.Log(FirstCube + " -------- :FirstCube");               
+               // Debug.Log(FirstCube + " -------- :FirstCube");               
                 ob = (Transform)Instantiate(getColorPref(), new Vector3(0, -5, 0), Quaternion.identity);
                 timestart = Time.time;
             }
@@ -118,14 +135,16 @@ public class Secai : MonoBehaviour
                 Vector2 velocity = new Vector2(0, 0);
                 rigidbody2D.velocity = velocity;
             }
-
+            if (ob!=null)
+            {
             if ((5 + ob.position.y) > juli)
             {
             
                 ob = (Transform)Instantiate(getColorPref(), new Vector3(cubeX, -5, 0), Quaternion.identity);
                 speed++;
-                Debug.LogError("speed: " + speed);
+               // Debug.LogError("speed: " + speed);
  
+            }
             }
         }
     }

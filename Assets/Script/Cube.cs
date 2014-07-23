@@ -11,13 +11,23 @@ public class Cube : MonoBehaviour
     void Start()
     {
        
-        rigidbody.velocity = new Vector3(0,( 3.00f+0.02f*Secai.Cubespeed), 0);
-        presentvelocity = 3.00f + 0.02f * Secai.Cubespeed;
+        rigidbody.velocity = new Vector3(0,( 3.00f+0.02f*Secai.speed), 0);
+     
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (End.destroycube)
+        {
+            if (gameObject.transform.position.y > -10) {
+                Destroy(gameObject);
+                Debug.Log("DestroyDestroyDestroyDestroyDestroy:");
+            }
+        }
+        if (Player.pauseeverything) {
+            rigidbody.velocity = new Vector3(0 , 0, 0);
+        }
         if (gameObject.transform.position.y > 4)
         {
             Destroy(gameObject);
