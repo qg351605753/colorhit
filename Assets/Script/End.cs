@@ -51,8 +51,6 @@ public class End : MonoBehaviour
                     player.active = false;
                     playermid.active = true;
 
-                    Debug.Log("returnedreturnedreturnedreturnedreturned");
-
                 }
             }
         }
@@ -62,7 +60,6 @@ public class End : MonoBehaviour
         // Vector3 movePosition = new Vector3(0, 10, 1.1f);
         yield return new WaitForSeconds(0.3f);
         starretry = true;
-        Debug.Log("retryretryretryretry");
         PlaneMove.reach = false;
         GameBegin.IsBegin = false;
         Secai.showover = false;

@@ -5,8 +5,8 @@ public class Gameovermove : MonoBehaviour
 {
 
     public static bool boolmove = false;
-    Vector3 gameoverPosition = new Vector3(-14, 0, 0);
-    Vector3 gameoveredPosition = new Vector3(-6, 0, 0);
+    Vector3 gameoverPosition = new Vector3(-14, 0, -1);
+    Vector3 gameoveredPosition = new Vector3(-6, 0, -1);
 
     // Use this for initialization
     void Start()
