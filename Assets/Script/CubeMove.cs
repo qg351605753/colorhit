@@ -5,7 +5,7 @@ public class CubeMove : MonoBehaviour {
 
     Vector3 cubePosition = new Vector3(0, 2.5F, 0);
     Vector3 tradPosition = new Vector3(0, 10, 0);
-    Vector3 backPosition = new Vector3(0, 0.5F, 0);
+    Vector3 backPosition = new Vector3(0, -1, 0);
     public GameObject player;
     public GameObject playermid;
 
