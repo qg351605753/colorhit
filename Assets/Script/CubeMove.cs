@@ -43,5 +43,9 @@ public class CubeMove : MonoBehaviour {
             //animation.Play();
             //animation["player"].speed = 1;
         }
+        if (End.startretrunde)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 1);
+        }
     }
 }

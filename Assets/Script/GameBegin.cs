@@ -82,7 +82,7 @@ public class GameBegin : MonoBehaviour
         }
         if (GameTrad.IsTrad)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 4);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 8);
         }
         if (BackMain.IsBack)
         {

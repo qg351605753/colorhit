@@ -26,5 +26,9 @@ public class GameName : MonoBehaviour {
         {
             transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 3);
         }
+        if (End.startretrunde)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 5);
+        }
     }
 }
