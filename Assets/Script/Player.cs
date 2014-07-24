@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public GameObject protect;
     public GameObject speedDown;
     public GameObject speedRush;
+    public static int beishu = 0;
+    public static int recordbeishu = 0;
 
     private static int blue = 0;
     private static int green = 0;
@@ -22,11 +24,13 @@ public class Player : MonoBehaviour
     private static int red = 0;
     private string changeColor;
     public static bool pauseeverything = false;
+    public static bool initial = false;
 
     public static int RED { get { return red; } }
     public static int GREEN { get { return green; } }
     public static int YELLOW { get { return yellow; } }
     public static int BLUE { get { return blue; } }
+    Vector3 initialPosition = new Vector3(0, 2.5f, 0);
     // Use this for initialization
     void Start()
     {
@@ -36,6 +40,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (initial)
+        {
+            //m_transform.Translate(new Vector3(0, 0, 0));
+            transform.position = Vector3.MoveTowards(transform.position, initialPosition, UnityEngine.Time.smoothDeltaTime * 10);
+            renderer.material.color = Color.white;
+            blue = 0;
+            green = 0;
+            yellow = 0;
+            red = 0;
+            //Debug.Log("initialinitialinitialinitialinitialinitialinitial");
+            if (transform.position.x ==0)
+            {
+                initial = false;
+            }
+            //StartCoroutine(Waitmoment());
+        }
 
 
         if (playerstar == true)
@@ -48,15 +68,15 @@ public class Player : MonoBehaviour
 
             //是否刚刚触屏
             // while (i < Input.touchCount)
-            // {
+           //  {
             //Debug.Log("i:" + i + " Touch Count:" + Input.touchCount);
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+                 if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 i++;
                 //接触屏幕的坐标
                 fristPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             }
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
+                 if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
             {                                  //触屏移动后的坐标      
                 movePos = Input.GetTouch(0).deltaPosition;
 
@@ -84,8 +104,8 @@ public class Player : MonoBehaviour
                 m_transform.Translate(new Vector3(10 * moveX, moveY, 0));
             }
         }
-        //  }
-    }
+          }
+  //  }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
@@ -101,11 +121,14 @@ public class Player : MonoBehaviour
             Destroy(collisionInfo.gameObject);
             Color changeColor = new Color(0, 0.686f, 1, 0);
             renderer.material.color = changeColor;
+            beishu++;
+            Recordbeishu();
             blue++;
             green = 0;
             yellow = 0;
             if (blue == 1)
             {
+                beishu = 1;
                 Secai.point += 1;
                 // speedDown.active = false;
                 // protect.active = false;
@@ -129,12 +152,14 @@ public class Player : MonoBehaviour
             // Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
             Destroy(collisionInfo.gameObject);
             renderer.material.color = Color.green;
-
+            beishu++;
+            Recordbeishu();
             green++;
             yellow = 0;
             blue = 0;
             if (green == 1)
             {
+                beishu = 1;
                 Secai.point += 1;
                 // protect.active = false;
                 // speedRush.active = false;
@@ -159,11 +184,14 @@ public class Player : MonoBehaviour
             // Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
             Destroy(collisionInfo.gameObject);
             renderer.material.color = Color.yellow;
+            beishu++;
+            Recordbeishu();
             yellow++;
             blue = 0;
             green = 0;
             if (yellow == 1)
             {
+                beishu = 1;
                 Secai.point += 1;
                 //  speedRush.active = false;
                 //  speedDown.active = false;
@@ -197,5 +225,22 @@ public class Player : MonoBehaviour
         pauseeverything = true;
         Gameovermove.boolmove = true;
     }
+    IEnumerator Waitmoment()
+    {
+        yield return new WaitForSeconds(1.2f);
+        initial = false;
+    }
+    void Recordbeishu() {
+        if (recordbeishu == 0)
+        {
+            recordbeishu = beishu;
+           
+        }
+        if (recordbeishu < beishu)
+        {
 
+            recordbeishu = beishu;
+           
+        }
+    }
 }

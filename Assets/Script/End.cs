@@ -32,24 +32,14 @@ public class End : MonoBehaviour
                 {
                     Secai.speed = 3;
                     destroycube = true;
+                    Player.initial = true;
                     StartCoroutine(waiting());
                 }
                 else if (hit.transform.name == "returned")
                 {
-                    Secai.speed = 3;
-                    PlaneMove.reach = false;
-                    GameBegin.IsBegin = false;
-                    destroycube = true;
-                    Secai.showover = false;
-                    Gameovermove.boolmove = false;
-                    startretrunde = true;
-                    Secai.point = 0;
-                    //GameShare.IsShare = false;
-                    //GameTrad.IsTrad = false;
-                   // player.SetActive(false);
-                   // playermid.SetActive(true);
-                    player.active = false;
-                    playermid.active = true;
+                    Player.initial = true;
+                    StartCoroutine(waited());
+                   // Debug.Log("returnedreturnedreturnedreturnedreturned");
 
                 }
             }
@@ -60,11 +50,35 @@ public class End : MonoBehaviour
         // Vector3 movePosition = new Vector3(0, 10, 1.1f);
         yield return new WaitForSeconds(0.3f);
         starretry = true;
+       // Debug.Log("retryretryretryretry");
         PlaneMove.reach = false;
         GameBegin.IsBegin = false;
         Secai.showover = false;
         //  Gameovermove.boolmove = true;
         Gameovermove.boolmove = false;
         Secai.point = 0;
+        
+        Player.recordbeishu = 0;
+    }
+    IEnumerator waited()
+    {
+        // Vector3 movePosition = new Vector3(0, 10, 1.1f);
+        yield return new WaitForSeconds(0.3f);
+        Secai.speed = 3;
+        PlaneMove.reach = false;
+        GameBegin.IsBegin = false;
+        destroycube = true;
+        Secai.showover = false;
+        Gameovermove.boolmove = false;
+        startretrunde = true;
+        Secai.point = 0;
+        //GameShare.IsShare = false;
+        //GameTrad.IsTrad = false;
+        // player.SetActive(false);
+        // playermid.SetActive(true);
+        player.active = false;
+        playermid.active = true;
+
+        Player.recordbeishu = 0;
     }
 }
