@@ -91,11 +91,9 @@ public class Player : MonoBehaviour
     {
         if (collisionInfo.gameObject.tag == "Finish")
         {
-            //  Debug.Log("碰撞到的物体的名字是：" + collisionInfo.gameObject.name);
             Destroy(collisionInfo.gameObject);
             Secai.recordTime();
             StartCoroutine(Wait());
-
         }
         else if (collisionInfo.gameObject.tag == "GameController")
         {

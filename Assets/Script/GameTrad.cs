@@ -75,7 +75,11 @@ public class GameTrad : MonoBehaviour {
             IsTrad = false;
             transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 3);
         }
-
+        if (End.startretrunde)
+        {
+            //IsTrad = false;
+            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 5);
+        }
     }
 
 

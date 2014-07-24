@@ -17,7 +17,7 @@ public class BackMain : MonoBehaviour {
 
         if (GameTrad.IsTrad)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 3);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 4);
         }
 
         if (Input.GetMouseButtonDown(0))

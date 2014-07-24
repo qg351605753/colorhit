@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\Gameovermove.cs" />
      <Compile Include="Assets\Script\PlaneMove.cs" />
      <Compile Include="Assets\Script\Player.cs" />
+     <Compile Include="Assets\Script\PointText.cs" />
      <Compile Include="Assets\Script\Secai.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
