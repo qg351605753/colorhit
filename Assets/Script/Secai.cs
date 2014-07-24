@@ -43,7 +43,7 @@ public class Secai : MonoBehaviour
             // GameObject.Find("Cube").renderer.enabled = true;
             // GameObject.Find("returned").renderer.enabled = true;
             GameObject.Find("record Text").GetComponent<TextMesh>().text = point.ToString();
-            GameObject.Find("mostHit Text").GetComponent<TextMesh>().text = "最大倍数：" + Player.recordbeishu;
+            GameObject.Find("mostHit Text").GetComponent<TextMesh>().text = "最大倍数： x" + Player.recordbeishu;
             GameObject.Find("most Text").GetComponent<TextMesh>().text = "最好成绩：" + recordtimes;
            // Debug.Log("showover");
         }
@@ -55,7 +55,8 @@ public class Secai : MonoBehaviour
        // if (begin)
         //{
             //GameObject.Find("time Text").GetComponent<GUIText>().text = "时间：" + timer.ToString(".000");
-        GameObject.Find("point Text").GetComponent<TextMesh>().text = "分数：" + point + " x" + Player.beishu;
+        GameObject.Find("point Text").GetComponent<TextMesh>().text = "分数：" + point;
+        GameObject.Find("point Text").GetComponent<TextMesh>().text = "倍数："+ " x" + Player.beishu;
        
 
         //  if (Startproduce == 0 && cam.transform.position.y < -10f)
