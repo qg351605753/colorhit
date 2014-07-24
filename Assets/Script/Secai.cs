@@ -56,7 +56,7 @@ public class Secai : MonoBehaviour
         //{
             //GameObject.Find("time Text").GetComponent<GUIText>().text = "时间：" + timer.ToString(".000");
         GameObject.Find("point Text").GetComponent<TextMesh>().text = "分数：" + point;
-        GameObject.Find("point Text").GetComponent<TextMesh>().text = "倍数："+ " x" + Player.beishu;
+        GameObject.Find("beishu Text").GetComponent<TextMesh>().text = "倍数："+ " x" + Player.beishu;
        
 
         //  if (Startproduce == 0 && cam.transform.position.y < -10f)
