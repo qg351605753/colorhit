@@ -22,7 +22,9 @@ public class Player : MonoBehaviour
     private static int green = 0;
     private static int yellow = 0;
     private static int red = 0;
-    private string changeColor;
+   // private string changeColor;
+
+ 
     public static bool pauseeverything = false;
     public static bool initial = false;
 
@@ -49,7 +51,7 @@ public class Player : MonoBehaviour
             green = 0;
             yellow = 0;
             red = 0;
-            //Debug.Log("initialinitialinitialinitialinitialinitialinitial");
+            Debug.Log("initialinitialinitialinitialinitialinitialinitial");
             if (transform.position.x ==0)
             {
                 initial = false;
@@ -101,7 +103,7 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                m_transform.Translate(new Vector3(10 * moveX, moveY, 0));
+                m_transform.Translate(new Vector3(8 * moveX, moveY, 0));
             }
         }
           }
@@ -151,7 +153,9 @@ public class Player : MonoBehaviour
         {
             // Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
             Destroy(collisionInfo.gameObject);
-            renderer.material.color = Color.green;
+           // renderer.material.color = Color.green;
+            Color changeColorg = new Color(0, 0.733f, 0.032f, 0);
+            renderer.material.color = changeColorg;
             beishu++;
             Recordbeishu();
             green++;
@@ -183,7 +187,9 @@ public class Player : MonoBehaviour
         {
             // Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
             Destroy(collisionInfo.gameObject);
-            renderer.material.color = Color.yellow;
+           // renderer.material.color = Color.yellow;
+            Color changeColory = new Color(0.961f, 0.906f, 0, 0);
+            renderer.material.color = changeColory;
             beishu++;
             Recordbeishu();
             yellow++;
