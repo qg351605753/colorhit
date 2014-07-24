@@ -7,6 +7,8 @@ public class End : MonoBehaviour {
     public GameObject returned;
     public static bool startretrunde = false;
     public static bool starretry = false;
+    public GameObject player;
+    public GameObject playermid;
 
 	// Use this for initialization
 	void Start () {
@@ -41,7 +43,10 @@ public class End : MonoBehaviour {
                     Secai.showover = false;
                     startretrunde = true;
                     Secai.point = 0;
-                   
+                    //GameShare.IsShare = false;
+                    //GameTrad.IsTrad = false;
+                    player.active = false;
+                    playermid.active = true;
 
                 }
             }

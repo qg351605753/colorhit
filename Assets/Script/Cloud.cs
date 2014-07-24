@@ -17,6 +17,10 @@ public class Cloud : MonoBehaviour {
 
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, UnityEngine.Time.smoothDeltaTime * 2);
         }
+        if (End.startretrunde) {
+            Animator m_ani = this.GetComponent<Animator>();
+            m_ani.enabled = true;
+        }
 	
 	}
 

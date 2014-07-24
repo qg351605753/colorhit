@@ -8,10 +8,10 @@ public class PlaneMove : MonoBehaviour {
     public static bool reach = false;
     Vector3 gamePosition =new Vector3(0, -20, 1);
     Vector3 tradPosition = new Vector3(0, 19.8F, 1);
-    Vector3 sharePosition = new Vector3(0, 11, 1);
+    //Vector3 sharePosition = new Vector3(0, 11, 1);
     Vector3 backPosition = new Vector3(0, 2, 1);
-    Vector3 returnPosition = new Vector3(0, 0, 1);
-    Vector3 retryPosition = new Vector3(0, -10.9f, 1);
+    Vector3 returnPosition = new Vector3(0, 2, 1);
+    Vector3 retryPosition = new Vector3(0, -20, 1);
  
     //RaycastHit hit = new RaycastHit();
     // float speed = 1.0f;  
@@ -35,7 +35,11 @@ public class PlaneMove : MonoBehaviour {
         }
         if (End.startretrunde)
         {
-        transform.position = Vector3.MoveTowards(transform.position, returnPosition, UnityEngine.Time.smoothDeltaTime * 4);
+            transform.position = Vector3.MoveTowards(transform.position, returnPosition, UnityEngine.Time.smoothDeltaTime * 10);
+            if (transform.position == returnPosition)
+            {
+                End.startretrunde = false;
+            }
         }
             // Debug.Log("GameBegin.IsPressed ---- " + GameBegin.IsPressed);
         //while(GameBegin.IsPressed == true)
