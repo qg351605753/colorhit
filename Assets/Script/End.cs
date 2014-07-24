@@ -39,6 +39,7 @@ public class End : MonoBehaviour {
                     GameBegin.IsBegin = false;
                     destroycube = true;
                     Secai.showover = false;
+                    Gameovermove.boolmove = false;
                     startretrunde = true;
                     Secai.point = 0;
                    
@@ -56,6 +57,8 @@ public class End : MonoBehaviour {
         PlaneMove.reach = false;
         GameBegin.IsBegin = false;
         Secai.showover = false;
+      //  Gameovermove.boolmove = true;
+        Gameovermove.boolmove = false;
         Secai.point = 0;
     }
 }
