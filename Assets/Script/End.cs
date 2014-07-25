@@ -57,7 +57,7 @@ public class End : MonoBehaviour
         //  Gameovermove.boolmove = true;
         Gameovermove.boolmove = false;
         Secai.point = 0;
-        
+        Player.beishu = 0;
         Player.recordbeishu = 0;
     }
     IEnumerator waited()
@@ -72,6 +72,7 @@ public class End : MonoBehaviour
         Gameovermove.boolmove = false;
         startretrunde = true;
         Secai.point = 0;
+        Player.beishu = 0;
         //GameShare.IsShare = false;
         //GameTrad.IsTrad = false;
         // player.SetActive(false);
