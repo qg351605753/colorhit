@@ -69,18 +69,18 @@ public class Player : MonoBehaviour
             int i = 1;
 
             //是否刚刚触屏
-            while (i < Input.touchCount)
-            {
+           // while (i < Input.touchCount)
+          //  {
             //Debug.Log("i:" + i + " Touch Count:" + Input.touchCount);
-                 if (Input.GetTouch(i).phase == TouchPhase.Began)
+                 if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 i++;
                 //接触屏幕的坐标
-                fristPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
+                fristPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             }
-                 if (Input.GetTouch(i).phase == TouchPhase.Moved)//是否触屏移动
+                 if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
             {                                  //触屏移动后的坐标      
-                movePos = Input.GetTouch(i).deltaPosition;
+                movePos = Input.GetTouch(0).deltaPosition;
 
                 //更据X轴的值判断移动方向
                 if (Mathf.Abs(fristPos.x - movePos.x) > 0.1)
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
             }
         }
           }
-    }
+   // }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
