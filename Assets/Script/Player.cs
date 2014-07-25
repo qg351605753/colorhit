@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
             {
                 beishu = 1;
                 Secai.point += 1;
+                Addpoints();
                 // speedDown.active = false;
                 // protect.active = false;
 
@@ -141,12 +142,13 @@ public class Player : MonoBehaviour
             else if (blue == 2)
             {
                 Secai.point += 2;
-
+                Addpoints();
 
             }
             else if (blue > 2)
             {
-                Secai.point += 6;
+                Addpoints();
+                Secai.point += beishu;
                 // speedRush.active = true;
 
             }
@@ -170,13 +172,14 @@ public class Player : MonoBehaviour
             {
                 beishu = 1;
                 Secai.point += 1;
+                Addpoints();
                 // protect.active = false;
                 // speedRush.active = false;
             }
             else if (green == 2)
             {
                 Secai.point += 2;
-
+                Addpoints();
 
             }
             else if (green > 2)
@@ -184,8 +187,8 @@ public class Player : MonoBehaviour
                 //
 
                 //speedDown.active = true;
-
-                Secai.point += 6;
+                Addpoints();
+                Secai.point += beishu;
             }
             Addpoints();
         }
@@ -206,22 +209,25 @@ public class Player : MonoBehaviour
             {
                 beishu = 1;
                 Secai.point += 1;
+                Addpoints();
                 //  speedRush.active = false;
                 //  speedDown.active = false;
             }
             else if (yellow == 2)
             {
                 Secai.point += 2;
+                Addpoints();
 
             }
             else if (yellow > 2)
             {
-                Secai.point += 6;
+                Addpoints();
+                Secai.point += beishu;
                 // protect.active = true;
 
 
             }
-            Addpoints();
+            
         }
     }
 
