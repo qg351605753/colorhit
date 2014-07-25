@@ -44,7 +44,7 @@ public class Secai : MonoBehaviour
             // GameObject.Find("returned").renderer.enabled = true;
             GameObject.Find("record Text").GetComponent<TextMesh>().text = Secai.point.ToString();
             GameObject.Find("most Text").GetComponent<TextMesh>().text = "最好成绩：" + Secai.recordtimes;
-            Debug.Log("showover");
+            //Debug.Log("showover");
         }
 
         float juli;

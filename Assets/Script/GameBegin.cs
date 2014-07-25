@@ -40,7 +40,8 @@ public class GameBegin : MonoBehaviour
                     End.startretrunde = false;
                     GameBeginBig.active = false;
                     GameBeginSmall.active = true;
-                   
+
+                    GameObject.Find("Playermid").animation.Play("sizeSmall");
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;

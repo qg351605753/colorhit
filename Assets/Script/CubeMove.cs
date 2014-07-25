@@ -24,7 +24,7 @@ public class CubeMove : MonoBehaviour {
             //animation["Cube"].speed = 0;
             //.Rewind("player");
             //animation["player"].speed = 0;
-            transform.position = Vector3.MoveTowards(transform.position, cubePosition, UnityEngine.Time.smoothDeltaTime * 1);
+            transform.position = Vector3.MoveTowards(transform.position, cubePosition, UnityEngine.Time.smoothDeltaTime * 1.5F);
             if (transform.position == cubePosition)
             {
                 player.active = true;
