@@ -35,7 +35,7 @@ public class PlaneMove : MonoBehaviour {
         }
         if (End.startretrunde)
         {
-            transform.position = Vector3.MoveTowards(transform.position, returnPosition, UnityEngine.Time.smoothDeltaTime * 10);
+            transform.position = Vector3.MoveTowards(transform.position, returnPosition, UnityEngine.Time.smoothDeltaTime * 11);
             if (transform.position == returnPosition)
             {
                 End.startretrunde = false;
@@ -52,7 +52,7 @@ public class PlaneMove : MonoBehaviour {
             //transform.Translate(0, 0, -2 * Time.deltaTime);
             //transform.Translate(velocity / velocity.magnitude * speed * Time.smoothDeltaTime);
 
-            transform.position = Vector3.MoveTowards(transform.position, gamePosition, UnityEngine.Time.smoothDeltaTime * 11);
+            transform.position = Vector3.MoveTowards(transform.position, gamePosition, UnityEngine.Time.smoothDeltaTime * 15);
             if (transform.position.y < -19.9f)
             {
                

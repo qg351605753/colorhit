@@ -40,7 +40,8 @@ public class GameBegin : MonoBehaviour
                     End.startretrunde = false;
                     GameBeginBig.active = false;
                     GameBeginSmall.active = true;
-                   
+
+                    
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;
@@ -63,7 +64,7 @@ public class GameBegin : MonoBehaviour
                     IsBegin = true;
                     GameBeginBig.active = true;
                     GameBeginSmall.active = false;
-
+                    GameObject.Find("Playermid").animation.Play("sizeSmall");
                     //GameBeginBtn.active = false;
                     /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
                     m_ani.enabled = false;*/

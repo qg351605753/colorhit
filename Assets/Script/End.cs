@@ -98,7 +98,7 @@ public class End : MonoBehaviour
         // playermid.SetActive(true);
         player.active = false;
         playermid.active = true;
-
+        GameObject.Find("Playermid").animation.Play("sizeBig");
         Player.recordbeishu = 0;
     }
     IEnumerator returnScale(GameObject btn)
