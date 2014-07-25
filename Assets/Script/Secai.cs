@@ -42,20 +42,22 @@ public class Secai : MonoBehaviour
             // GameObject.Find("retry").renderer.enabled = true;
             // GameObject.Find("Cube").renderer.enabled = true;
             // GameObject.Find("returned").renderer.enabled = true;
-            GameObject.Find("record Text").GetComponent<TextMesh>().text = Secai.point.ToString();
-            GameObject.Find("most Text").GetComponent<TextMesh>().text = "最好成绩：" + Secai.recordtimes;
-            //Debug.Log("showover");
+            GameObject.Find("record Text").GetComponent<TextMesh>().text = point.ToString();
+            GameObject.Find("mostHit Text").GetComponent<TextMesh>().text = "最大倍数： x" + Player.recordbeishu;
+            GameObject.Find("most Text").GetComponent<TextMesh>().text = "最好成绩：" + recordtimes;
+           // Debug.Log("showover");
         }
 
         float juli;
 
         //GameObject.Find("title Text").GetComponent<GUIText>().text = "色彩撞击";
         timer = Time.time - timestart;
-        if (begin)
-        {
+       // if (begin)
+        //{
             //GameObject.Find("time Text").GetComponent<GUIText>().text = "时间：" + timer.ToString(".000");
-            GameObject.Find("point Text").GetComponent<GUIText>().text = "分数：" + point;
-        }
+        GameObject.Find("point Text").GetComponent<TextMesh>().text = "分数：" + point;
+        //GameObject.Find("beishu Text").GetComponent<TextMesh>().text = "倍数："+ " x" + Player.beishu;
+       
 
         //  if (Startproduce == 0 && cam.transform.position.y < -10f)
         if (Startproduce == 0 && PlaneMove.reach)
@@ -162,4 +164,7 @@ public class Secai : MonoBehaviour
             PlayerPrefs.SetInt("recordtimes", recordtimes);
         }
     }
+    
+
+   
 }
