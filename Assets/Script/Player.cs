@@ -69,18 +69,18 @@ public class Player : MonoBehaviour
             int i = 1;
 
             //是否刚刚触屏
-            // while (i < Input.touchCount)
-           //  {
+            while (i < Input.touchCount)
+            {
             //Debug.Log("i:" + i + " Touch Count:" + Input.touchCount);
-                 if (Input.GetTouch(0).phase == TouchPhase.Began)
+                 if (Input.GetTouch(i).phase == TouchPhase.Began)
             {
                 i++;
                 //接触屏幕的坐标
-                fristPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                fristPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
             }
-                 if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
+                 if (Input.GetTouch(i).phase == TouchPhase.Moved)//是否触屏移动
             {                                  //触屏移动后的坐标      
-                movePos = Input.GetTouch(0).deltaPosition;
+                movePos = Input.GetTouch(i).deltaPosition;
 
                 //更据X轴的值判断移动方向
                 if (Mathf.Abs(fristPos.x - movePos.x) > 0.1)
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
             }
         }
           }
-  //  }
+    }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
@@ -124,6 +124,8 @@ public class Player : MonoBehaviour
             Color changeColor = new Color(0, 0.686f, 1, 0);
             renderer.material.color = changeColor;
             beishu++;
+           
+          //  protect.SendMessage("AddPoints");
             Recordbeishu();
             blue++;
             green = 0;
@@ -148,6 +150,7 @@ public class Player : MonoBehaviour
                 // speedRush.active = true;
 
             }
+            Addpoints();
         }
         else if (collisionInfo.gameObject.tag == "EditorOnly")
         {
@@ -157,6 +160,8 @@ public class Player : MonoBehaviour
             Color changeColorg = new Color(0, 0.733f, 0.032f, 0);
             renderer.material.color = changeColorg;
             beishu++;
+            
+            // protect.SendMessage("AddPoints");
             Recordbeishu();
             green++;
             yellow = 0;
@@ -182,6 +187,7 @@ public class Player : MonoBehaviour
 
                 Secai.point += 6;
             }
+            Addpoints();
         }
         else if (collisionInfo.gameObject.tag == "Respawn")
         {
@@ -191,6 +197,7 @@ public class Player : MonoBehaviour
             Color changeColory = new Color(0.961f, 0.906f, 0, 0);
             renderer.material.color = changeColory;
             beishu++;
+           
             Recordbeishu();
             yellow++;
             blue = 0;
@@ -214,7 +221,17 @@ public class Player : MonoBehaviour
 
 
             }
+            Addpoints();
         }
+    }
+
+    private void Addpoints()
+    {
+        //GameObject.Find("Combo").animation.Stop();
+        GameObject.Find("ComboHolder").transform.GetComponentInChildren<TextMesh>().text = "X" + beishu;
+        //GameObject.Find("Combo").animation.Play("Combo");
+        GameObject.Find("WaveText233").animation.Stop("comboText");
+        GameObject.Find("WaveText233").animation.Play("comboText");
     }
 
     IEnumerator Wait()
@@ -237,6 +254,9 @@ public class Player : MonoBehaviour
         initial = false;
     }
     void Recordbeishu() {
+
+
+
         if (recordbeishu == 0)
         {
             recordbeishu = beishu;
