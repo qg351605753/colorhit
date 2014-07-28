@@ -22,7 +22,6 @@ public class Cube : MonoBehaviour
         {
             if (gameObject.transform.position.y > -10) {
                 Destroy(gameObject);
-                //Debug.Log("DestroyDestroyDestroyDestroyDestroy:");
             }
         }
         if (Player.pauseeverything) {
