@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CubeMove : MonoBehaviour {
+public class CubeMove : MonoBehaviour
+{
 
     Vector3 cubePosition = new Vector3(0, 2.5F, 0);
     Vector3 tradPosition = new Vector3(0, 10, 0);
@@ -45,7 +46,7 @@ public class CubeMove : MonoBehaviour {
         }
         if (End.startretrunde)
         {
-            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 1.5F);
+            transform.position = Vector3.MoveTowards(transform.position, backPosition, UnityEngine.Time.smoothDeltaTime * 1);
         }
     }
 }

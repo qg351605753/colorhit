@@ -69,16 +69,16 @@ public class Player : MonoBehaviour
             int i = 1;
 
             //是否刚刚触屏
-           // while (i < Input.touchCount)
-          //  {
+            //while (i < Input.touchCount)
+            //{
             //Debug.Log("i:" + i + " Touch Count:" + Input.touchCount);
-                 if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 i++;
                 //接触屏幕的坐标
                 fristPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             }
-                 if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
+            if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
             {                                  //触屏移动后的坐标      
                 movePos = Input.GetTouch(0).deltaPosition;
 
@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
             {
                 beishu = 1;
                 Secai.point += 1;
+                Addpoints();
                 // speedDown.active = false;
                 // protect.active = false;
 
@@ -141,12 +142,13 @@ public class Player : MonoBehaviour
             else if (blue == 2)
             {
                 Secai.point += 2;
-
+                Addpoints();
 
             }
             else if (blue > 2)
             {
-                Secai.point += 6;
+                Addpoints();
+                Secai.point += beishu;
                 // speedRush.active = true;
 
             }
@@ -170,13 +172,14 @@ public class Player : MonoBehaviour
             {
                 beishu = 1;
                 Secai.point += 1;
+                Addpoints();
                 // protect.active = false;
                 // speedRush.active = false;
             }
             else if (green == 2)
             {
                 Secai.point += 2;
-
+                Addpoints();
 
             }
             else if (green > 2)
@@ -184,8 +187,8 @@ public class Player : MonoBehaviour
                 //
 
                 //speedDown.active = true;
-
-                Secai.point += 6;
+                Addpoints();
+                Secai.point += beishu;
             }
             Addpoints();
         }
@@ -206,22 +209,25 @@ public class Player : MonoBehaviour
             {
                 beishu = 1;
                 Secai.point += 1;
+                Addpoints();
                 //  speedRush.active = false;
                 //  speedDown.active = false;
             }
             else if (yellow == 2)
             {
                 Secai.point += 2;
+                Addpoints();
 
             }
             else if (yellow > 2)
             {
-                Secai.point += 6;
+                Addpoints();
+                Secai.point += beishu;
                 // protect.active = true;
 
 
             }
-            Addpoints();
+            
         }
     }
 
