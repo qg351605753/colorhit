@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameBegin : MonoBehaviour
 {
-
+   
     public GameObject GameBeginSmall;
     //public GameObject GameBeginBtn;
     public GameObject GameBeginBig;
@@ -12,7 +12,12 @@ public class GameBegin : MonoBehaviour
     Vector3 backPosition = new Vector3(-1, 0, 0);
     Vector3 beginPosition = new Vector3(-1, -8, 0);
     Vector3 retrunPosition = new Vector3(-1, 0, 0);
-
+    
+     void Start()
+    {
+       
+    }
+     
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +35,7 @@ public class GameBegin : MonoBehaviour
             {
                 if (hit.transform.name == "GameBeginBtn")
                 {
-
+                   
                     // Debug.Log("click");
                     //IsBegin = true;
                     Secai.FirstCube = false;

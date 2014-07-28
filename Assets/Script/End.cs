@@ -10,6 +10,8 @@ public class End : MonoBehaviour
     public static bool starretry = false;
     public GameObject player;
     public GameObject playermid;
+    private string path;
+    private string picpath;
     Transform save;
 
     // Use this for initialization
@@ -56,10 +58,16 @@ public class End : MonoBehaviour
                 }
                 else if (hit.transform.name =="share")
                 {
-                    Debug.Log("share:");
+                   
                    // ChangeScale(GameObject.Find("share"));
                     
                     GameObject.Find("share").animation.Play("Changebtn");
+                   /* Application.CaptureScreenshot("Screenshot.png");
+                    if(Application.platform==RuntimePlatform.Android){  
+                    	path=Application.persistentDataPath;  
+                    }
+                    picpath =path+"/Screenshot.png";
+                    Lihuiweibo.jietu(picpath);**/
                 }
             }
         }

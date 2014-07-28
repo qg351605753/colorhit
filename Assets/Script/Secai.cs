@@ -24,11 +24,12 @@ public class Secai : MonoBehaviour
     private float timestart;
     private bool begin = false;
     public static int Startproduce = 0;
+    public static GameObject backgroundmusic;
 
     // Use this for initialization
     void Start()
     {
-
+        backgroundmusic = GameObject.Find("backgroundmusic");
         recordtimes = PlayerPrefs.GetInt("recordtimes", 0);
         speed = 3.0f;
         point = 0;
@@ -70,6 +71,7 @@ public class Secai : MonoBehaviour
                 // Debug.Log(FirstCube + " -------- :FirstCube");               
                 ob = (Transform)Instantiate(getColorPref(), new Vector3(0, -5, 0), Quaternion.identity);
                 timestart = Time.time;
+                backgroundmusic.audio.Play();
             }
         }
 
