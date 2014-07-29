@@ -25,10 +25,12 @@ public class Secai : MonoBehaviour
     private bool begin = false;
     public static int Startproduce = 0;
     public static GameObject backgroundmusic;
+    public static GameObject Recordbreakingmusic;
 
     // Use this for initialization
     void Start()
     {
+        Recordbreakingmusic = GameObject.Find("record-breakingmusic");
         backgroundmusic = GameObject.Find("backgroundmusic");
         recordtimes = PlayerPrefs.GetInt("recordtimes", 0);
         speed = 3.0f;
@@ -71,7 +73,10 @@ public class Secai : MonoBehaviour
                 // Debug.Log(FirstCube + " -------- :FirstCube");               
                 ob = (Transform)Instantiate(getColorPref(), new Vector3(0, -5, 0), Quaternion.identity);
                 timestart = Time.time;
-                backgroundmusic.audio.Play();
+                if (GameShare.i % 2 == 0)
+                {
+                    backgroundmusic.audio.Play();
+                }
             }
         }
 
@@ -161,12 +166,13 @@ public class Secai : MonoBehaviour
         }
         if (recordtimes < point)
         {
-
+            if (GameShare.i % 2 == 0)
+            {
+                Recordbreakingmusic.audio.Play();
+            }
             recordtimes = point;
             PlayerPrefs.SetInt("recordtimes", recordtimes);
         }
     }
-    
-
-   
+  
 }

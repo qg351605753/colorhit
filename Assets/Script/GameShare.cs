@@ -10,7 +10,7 @@ public class GameShare : MonoBehaviour
     public static bool IsShare = false;
     Vector3 targetPosition = new Vector3(9, -3, 0);
     Vector3 backPosition = new Vector3(1, -3, 0);
-    public int i = 0;
+    public static int i = 0;
     // Update is called once per frame
     void Update()
     {
@@ -18,12 +18,11 @@ public class GameShare : MonoBehaviour
         {
             Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            i++;
             if (Physics.Raycast(pos, out hit))
             {
                 if (hit.transform.name == "GameShareBtn")
                 {
-
+                    i++;
                     if (i % 2 == 1)
                     {
                         GameShareBig.active = false;

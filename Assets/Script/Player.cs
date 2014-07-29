@@ -34,12 +34,13 @@ public class Player : MonoBehaviour
     public static int BLUE { get { return blue; } }
     Vector3 initialPosition = new Vector3(0, 2.5f, 0);
     GameObject gameovermusic;
-    GameObject hitmusic;
+   // GameObject hitmusic;
+    public AudioClip hitedmusic;
     // Use this for initialization
     void Start()
     {
         gameovermusic = GameObject.Find("gameovermusic");
-        hitmusic = GameObject.Find("hitmusic");
+       
     }
 
     // Update is called once per frame
@@ -123,8 +124,8 @@ public class Player : MonoBehaviour
         else if (collisionInfo.gameObject.tag == "GameController")
         {
             // Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
-            
-            StartCoroutine(Musicon());
+
+            PlaySounds();
             Destroy(collisionInfo.gameObject);
             Color changeColor = new Color(0, 0.686f, 1, 0);
             renderer.material.color = changeColor;
@@ -162,8 +163,8 @@ public class Player : MonoBehaviour
         else if (collisionInfo.gameObject.tag == "EditorOnly")
         {
             // Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
-         
-            StartCoroutine(Musicon());
+
+            PlaySounds();
             Destroy(collisionInfo.gameObject);
            // renderer.material.color = Color.green;
             Color changeColorg = new Color(0, 0.733f, 0.032f, 0);
@@ -202,8 +203,8 @@ public class Player : MonoBehaviour
         else if (collisionInfo.gameObject.tag == "Respawn")
         {
             // Debug.Log("碰撞到的物体的名字是:" + collisionInfo.gameObject.name);
-           
-            StartCoroutine(Musicon());
+
+            PlaySounds();
             Destroy(collisionInfo.gameObject);
            // renderer.material.color = Color.yellow;
             Color changeColory = new Color(0.961f, 0.906f, 0, 0);
@@ -260,7 +261,10 @@ public class Player : MonoBehaviour
         // GameObject.Find("gameover").collider.enabled = true;
         //Secai.showover = true;
         Secai.backgroundmusic.audio.Stop();
-        gameovermusic.audio.Play();      
+        if (GameShare.i % 2 == 0)
+        {
+            gameovermusic.audio.Play();
+        }
         Secai.showover = true;
         pauseeverything = true;
         Gameovermove.boolmove = true;
@@ -271,10 +275,7 @@ public class Player : MonoBehaviour
         initial = false;
     }
 
-    IEnumerator  Musicon() {
-        yield return new WaitForSeconds(0.01f);
-        hitmusic.audio.Play();
-    }
+ 
 
     void Recordbeishu() {
 
@@ -292,4 +293,14 @@ public class Player : MonoBehaviour
            
         }
     }
+    void PlaySounds() {
+        
+        if (GameShare.i % 2 == 0)
+        {
+        hitedmusic = Resources.Load("Audio/hit") as AudioClip;
+        AudioSource.PlayClipAtPoint(hitedmusic, new Vector3(0, 10, 0), 1.0f);
+        }
+        // StartCoroutine(Playhit());
+    }
+  
 }
