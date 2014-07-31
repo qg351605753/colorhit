@@ -62,12 +62,12 @@ public class End : MonoBehaviour
                    // ChangeScale(GameObject.Find("share"));
                     
                     GameObject.Find("share").animation.Play("Changebtn");
-                    Application.CaptureScreenshot("Screenshot.png");
+                   /* Application.CaptureScreenshot("Screenshot.png");
                     if(Application.platform==RuntimePlatform.Android){  
                     	path=Application.persistentDataPath;  
                     }
                     picpath =path+"/Screenshot.png";
-                    Lihuiweibo.jietu(picpath);
+                    Lihuiweibo.jietu(picpath);**/
                 }
             }
         }
