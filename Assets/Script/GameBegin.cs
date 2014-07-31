@@ -38,11 +38,7 @@ public class GameBegin : MonoBehaviour
                    
                     // Debug.Log("click");
                     //IsBegin = true;
-                    Secai.FirstCube = false;
-                    Secai.Startproduce = 0;
-                    End.destroycube = false;
-                    Player.pauseeverything = false;
-                    End.startretrunde = false;
+          
                     GameBeginBig.active = false;
                     GameBeginSmall.active = true;
 
@@ -70,6 +66,11 @@ public class GameBegin : MonoBehaviour
                     GameBeginBig.active = true;
                     GameBeginSmall.active = false;
                     GameObject.Find("Playermid").animation.Play("sizeSmall");
+                    Secai.FirstCube = false;
+                    Secai.Startproduce = 0;
+                    End.destroycube = false;
+                    Player.pauseeverything = false;
+                    End.startretrunde = false;
                     //GameBeginBtn.active = false;
                     /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
                     m_ani.enabled = false;*/

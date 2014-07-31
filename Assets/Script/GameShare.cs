@@ -8,8 +8,8 @@ public class GameShare : MonoBehaviour
     //public GameObject ClickedBackground;
     public GameObject GameShareBig;
     public static bool IsShare = false;
-    Vector3 targetPosition = new Vector3(9, -3, 0);
-    Vector3 backPosition = new Vector3(1, -3, 0);
+    Vector3 targetPosition = new Vector3(9, -4.5f, 0);
+    Vector3 backPosition = new Vector3(2, -4.5f, 0);
     public static int i = 0;
     // Update is called once per frame
     void Update()

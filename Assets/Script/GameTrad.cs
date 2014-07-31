@@ -8,8 +8,9 @@ public class GameTrad : MonoBehaviour {
     public GameObject GameTradBig;
     public GameObject GameTradSmall;
     public static bool IsTrad = false;
-    Vector3 targetPosition = new Vector3(-10, -3, 0);
-    Vector3 backPosition = new Vector3(-2, -3, 0);
+    public Leaderboard lb;
+    Vector3 targetPosition = new Vector3(-10, -4.5f, 0);
+    Vector3 backPosition = new Vector3(-1.75f, -4.5f, 0);
     // Update is called once per frame
     void Update()
     {
@@ -48,10 +49,10 @@ public class GameTrad : MonoBehaviour {
                 {
 
                     // Debug.Log("click");
-                    IsTrad = true;
+                    //IsTrad = true;
                     GameTradBig.active = true;
                     GameTradSmall.active = false;
-                    
+                    lb.ShowLeaderboard();
 
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");

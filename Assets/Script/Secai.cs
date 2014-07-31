@@ -30,6 +30,7 @@ public class Secai : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Camera.main.aspect = 0.57f;
         Recordbreakingmusic = GameObject.Find("record-breakingmusic");
         backgroundmusic = GameObject.Find("backgroundmusic");
         recordtimes = PlayerPrefs.GetInt("recordtimes", 0);
@@ -172,6 +173,8 @@ public class Secai : MonoBehaviour
             }
             recordtimes = point;
             PlayerPrefs.SetInt("recordtimes", recordtimes);
+            Leaderboard.ReportScore("1", (long)recordtimes);
+
         }
     }
   
