@@ -4,7 +4,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Leaderboard : MonoBehaviour
 {
-
+#if UNITY_IOS
 	// we'll create some buttons in OnGui, allowing us to bump achievement and
 	// score values for testing
 		
@@ -194,4 +194,5 @@ public class Leaderboard : MonoBehaviour
 			ShowLeaderboard ();
 		}
 	}
+#endif
 }

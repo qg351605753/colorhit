@@ -55,9 +55,11 @@ public class GameTrad : MonoBehaviour {
                     GameTradBig.active = true;
                     GameTradSmall.active = false;
 
-                    
+#if UNITY_IOS
 					ld.ShowLeaderboard ();
-
+#elif UNITY_ANDROID
+                    IsTrad = true;
+#endif
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;

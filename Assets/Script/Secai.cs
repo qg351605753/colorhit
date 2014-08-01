@@ -176,8 +176,9 @@ public class Secai : MonoBehaviour
             recordtimes = point;
             PlayerPrefs.SetInt("recordtimes", recordtimes);
 
+#if UNITY_IOS
             Leaderboard.ReportScore("1",(long)recordtimes);
-
+#endif
         }
     }
 

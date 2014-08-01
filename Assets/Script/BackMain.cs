@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BackMain : MonoBehaviour {
-    Vector3 targetPosition = new Vector3(1, -3, 0);
+    Vector3 targetPosition = new Vector3(1.5f, -4f, 0);
     Vector3 backPosition = new Vector3(1, -13, 0);
     public GameObject BackBig;
     public GameObject BackSmall;

@@ -68,8 +68,10 @@ public class End : MonoBehaviour
                     }
 
 					Application.CaptureScreenshot("jietu.JPG");
+#if UNITY_IOS
 					Lihui.weibo();
-                  //  picpath =path+"/Screenshot.png";
+#endif
+                    //  picpath =path+"/Screenshot.png";
         //            Lihuiweibo.jietu(picpath);
 
                 }
