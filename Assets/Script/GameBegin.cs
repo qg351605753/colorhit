@@ -34,20 +34,14 @@ public class GameBegin : MonoBehaviour
             if (Physics.Raycast(pos, out hit))
             {
                 if (hit.transform.name == "GameBeginBtn")
-                {
-                   
+                {              
                     // Debug.Log("click");
                     //IsBegin = true;
-          
                     GameBeginBig.active = false;
-                    GameBeginSmall.active = true;
-
-                    
+                    GameBeginSmall.active = true;				                  
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;
-
-
                 }
             }
         }
@@ -66,11 +60,13 @@ public class GameBegin : MonoBehaviour
                     GameBeginBig.active = true;
                     GameBeginSmall.active = false;
                     GameObject.Find("Playermid").animation.Play("sizeSmall");
+
                     Secai.FirstCube = false;
                     Secai.Startproduce = 0;
                     End.destroycube = false;
                     Player.pauseeverything = false;
                     End.startretrunde = false;
+
                     //GameBeginBtn.active = false;
                     /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
                     m_ani.enabled = false;*/

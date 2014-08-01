@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SocialPlatforms;
 
 public class Secai : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Secai : MonoBehaviour
     void Start()
     {
         Camera.main.aspect = 0.57f;
+
         Recordbreakingmusic = GameObject.Find("record-breakingmusic");
         backgroundmusic = GameObject.Find("backgroundmusic");
         recordtimes = PlayerPrefs.GetInt("recordtimes", 0);
@@ -173,9 +175,12 @@ public class Secai : MonoBehaviour
             }
             recordtimes = point;
             PlayerPrefs.SetInt("recordtimes", recordtimes);
-            Leaderboard.ReportScore("1", (long)recordtimes);
+
+            Leaderboard.ReportScore("1",(long)recordtimes);
 
         }
     }
+
+
   
 }
