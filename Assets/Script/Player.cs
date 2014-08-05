@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private static int green = 0;
     private static int yellow = 0;
     private static int red = 0;
+
    // private string changeColor;
 
  
@@ -78,47 +79,73 @@ public class Player : MonoBehaviour
             //while (i < Input.touchCount)
             //{
             //Debug.Log("i:" + i + " Touch Count:" + Input.touchCount);
+         
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 i++;
                 //接触屏幕的坐标
                 fristPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             }
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
-            {                                  //触屏移动后的坐标      
-                movePos = Input.GetTouch(0).deltaPosition;
+             if (Input.GetTouch(0).phase == TouchPhase.Moved)//是否触屏移动
+             {                                  //触屏移动后的坐标      
+                 movePos = Input.GetTouch(0).deltaPosition;
 
-                //更据X轴的值判断移动方向
-                if (Mathf.Abs(fristPos.x - movePos.x) > 0.1)
-                {
-                    //向右移动
-                    if (fristPos.x < movePos.x)
-                    {
-                        if ((movePos.x / 700) + m_transform.position.x <= 2.40f)
-                        {
-                            moveX += movePos.x / 700;
-                        }
-                    }
-                    //向左移动
-                    if (fristPos.x > movePos.x)
-                    {
-                        if ((m_transform.position.x + movePos.x / 700) >= -2.40f)
-                        {
-                            moveX -= Mathf.Abs(movePos.x / 700);
-                        }
-                    }
-                }
-
-                m_transform.Translate(new Vector3(8 * moveX, moveY, 0));
+                 //更据X轴的值判断移动方向
+                 if (Mathf.Abs(fristPos.x - movePos.x) > 0.1)
+                 {
+                     //向右移动
+                     if (fristPos.x < movePos.x && Camera.main.WorldToScreenPoint(transform.position).x<Screen.width)
+                     {
+                        // if ((movePos.x / 700) + m_transform.position.x <= 2.40f)
+                         //if ((movePos.x / 700) + m_transform.position.x <=Camera.main.ScreenToWorldPoint(WordPos).x)
+                         
+                         {
+                             moveX += movePos.x / 700;
+                         }
+                     }
+                     //向左移动
+                     if (fristPos.x > movePos.x && Camera.main.WorldToScreenPoint(transform.position).x > 0)
+                     {
+                         if ((m_transform.position.x + movePos.x / 700) >= -2.40f)
+                         {
+                             moveX -= Mathf.Abs(movePos.x / 700);
+                         }
+                     }
+                 }
+                /* if (m_transform.position.x > -2.5f && m_transform.position.x < 2.5f)
+                 {
+                     m_transform.Translate(new Vector3(8 * moveX, moveY, 0));
+                 }**/
+                 if (m_transform.position.x + 8 * moveX > -2.5f && m_transform.position.x + 8 * moveX <2.5f)
+                 {
+                  m_transform.Translate(new Vector3(8 * moveX, 0, 0));
             }
+                 else if (m_transform.position.x + 8 * moveX > 2.5f)
+                 {
+                     m_transform.Translate(new Vector3(0, 0, 0));
+                 }
+                 else if (m_transform.position.x + 8 * moveX < -2.5f) {
+                     m_transform.Translate(new Vector3(0, 0, 0));
+                 }
+             
+             }
+        }
+        else {
+            //rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+           // RigidbodyConstraints.FreezeAll;
+           // Rigidbody.freezePosition = true;
+            rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
           }
+    
    // }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
+        
         if (collisionInfo.gameObject.tag == "Finish")
         {
+            playerstar = false;
             Destroy(collisionInfo.gameObject);
             Secai.recordTime();
             StartCoroutine(Wait());

@@ -1,9 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GameTrad.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/End.cs">
     <Files>
-      <File FileName="Assets/Script/GameBegin.cs" Line="4" Column="1" />
-      <File FileName="Assets/Script/GameTrad.cs" Line="13" Column="1" />
+      <File FileName="Assets/Script/GameBegin.cs" Line="72" Column="6" />
+      <File FileName="Assets/Script/GameTrad.cs" Line="3" Column="1" />
+      <File FileName="Assets/Script/GameShare.cs" Line="32" Column="34" />
+      <File FileName="Assets/Script/End.cs" Line="46" Column="32" />
+      <File FileName="Assets/Script/UmengEx.cs" Line="16" Column="31" />
+      <File FileName="Assets/Script/Player.cs" Line="126" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
