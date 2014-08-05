@@ -49,7 +49,7 @@ public class Secai : MonoBehaviour
             // GameObject.Find("Cube").renderer.enabled = true;
             // GameObject.Find("returned").renderer.enabled = true;
             GameObject.Find("record Text").GetComponent<TextMesh>().text = point.ToString();
-            GameObject.Find("mostHit Text").GetComponent<TextMesh>().text = "最大倍数： x" + Player.recordbeishu;
+            GameObject.Find("mostHit Text").GetComponent<TextMesh>().text = "本局倍数： x" + Player.recordbeishu;
             GameObject.Find("most Text").GetComponent<TextMesh>().text = "最好成绩：" + recordtimes;
            // Debug.Log("showover");
         }

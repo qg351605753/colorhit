@@ -33,7 +33,7 @@ public class End : MonoBehaviour
             {
                 if (hit.transform.name == "retry")
                 {
-                    Debug.Log("retry:");
+                    Player.playerstar = true;
                    // ChangeScale(GameObject.Find("retry"));
                     GameObject.Find("retry").animation.Play("Changebtn");
                     Secai.speed = 3;
@@ -62,12 +62,12 @@ public class End : MonoBehaviour
                    // ChangeScale(GameObject.Find("share"));
                     
                     GameObject.Find("share").animation.Play("Changebtn");
-                    Application.CaptureScreenshot("Screenshot.png");
+                    /*Application.CaptureScreenshot("Screenshot.png");
                     if(Application.platform==RuntimePlatform.Android){  
                     	path=Application.persistentDataPath;  
                     }
 
-					Application.CaptureScreenshot("jietu.JPG");
+					Application.CaptureScreenshot("jietu.JPG");**/
 #if UNITY_IOS
 					Lihui.weibo();
 #endif

@@ -11,7 +11,7 @@ public class Cube : MonoBehaviour
     void Start()
     {
        
-        rigidbody.velocity = new Vector3(0,( 3.00f+0.02f*Secai.speed), 0);
+        rigidbody.velocity = new Vector3(0,( 3.30f+0.02f*Secai.speed), 0);
      
     }
 
