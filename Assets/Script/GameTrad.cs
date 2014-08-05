@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Umeng;
 
 public class GameTrad : MonoBehaviour {
 
@@ -8,6 +10,7 @@ public class GameTrad : MonoBehaviour {
     public GameObject GameTradBig;
     public GameObject GameTradSmall;
     public static bool IsTrad = false;
+	
 
 	public Leaderboard ld;
     Vector3 targetPosition = new Vector3(-10, -4.5f, 0);
@@ -60,6 +63,7 @@ public class GameTrad : MonoBehaviour {
 #elif UNITY_ANDROID
                     IsTrad = true;
 #endif
+					GA.Use("Trad", 1, 0.0);
                     //Material mt = Background.materials[0];
                     //mt = (Material)GameObject.Find("ClickedBackground");
                     //ClickedBackground.active = false;

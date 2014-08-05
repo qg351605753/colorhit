@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Umeng;
 
 public class GameBegin : MonoBehaviour
 {
@@ -12,10 +14,10 @@ public class GameBegin : MonoBehaviour
     Vector3 backPosition = new Vector3(-1, 0, 0);
     Vector3 beginPosition = new Vector3(-1, -8, 0);
     Vector3 retrunPosition = new Vector3(-1, 0, 0);
-    
+
      void Start()
     {
-       
+
     }
      
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class GameBegin : MonoBehaviour
                     Player.pauseeverything = false;
                     End.startretrunde = false;
 
+					GA.StartLevel("MainGame");
                     //GameBeginBtn.active = false;
                     /*Animator m_ani = GameObject.Find("player").GetComponent<Animator>();
                     m_ani.enabled = false;*/

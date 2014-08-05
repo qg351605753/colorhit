@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Umeng;
+using System.IO;
 
 public class End : MonoBehaviour
 {
@@ -40,6 +43,8 @@ public class End : MonoBehaviour
                     destroycube = true;
                     Player.initial = true;
                     StartCoroutine(waiting());
+					GA.StartLevel("MainGame");
+					GA.Use("Again", 1, 0.0);
                 }
                 else if (hit.transform.name == "returned")
                 {
@@ -53,7 +58,7 @@ public class End : MonoBehaviour
                    // ChangeScale(GameObject.Find("returned"));
                     Player.initial = true;
                     StartCoroutine(waited());
-                   
+					GA.Use("Home", 1, 0.0);
 
                 }
                 else if (hit.transform.name =="share")
@@ -62,18 +67,20 @@ public class End : MonoBehaviour
                    // ChangeScale(GameObject.Find("share"));
                     
                     GameObject.Find("share").animation.Play("Changebtn");
-                    /*Application.CaptureScreenshot("Screenshot.png");
-                    if(Application.platform==RuntimePlatform.Android){  
+
+					Application.CaptureScreenshot("screencapture.png");
+					if(Application.platform==RuntimePlatform.Android || Application.platform==RuntimePlatform.IPhonePlayer){  
                     	path=Application.persistentDataPath;  
                     }
 
-					Application.CaptureScreenshot("jietu.JPG");**/
+					Application.CaptureScreenshot("jietu.JPG");
 #if UNITY_IOS
 					Lihui.weibo();
 #endif
+					//判断文件是不是存在
                     //  picpath =path+"/Screenshot.png";
         //            Lihuiweibo.jietu(picpath);
-
+					GA.Use("Share", 1, 0.0);
                 }
             }
         }
