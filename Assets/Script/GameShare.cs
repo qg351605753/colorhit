@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Umeng;
 
 public class GameShare : MonoBehaviour
 {
@@ -27,11 +29,13 @@ public class GameShare : MonoBehaviour
                     {
                         GameShareBig.active = false;
                         GameShareSmall.active = true;
+						GA.Use("RadioOff", 1, 0.0);
                     }
                     if (i % 2 == 0)
                     {
                         GameShareBig.active = true;
                         GameShareSmall.active = false;
+						GA.Use("RadioOn", 1, 0.0);
                     }
 
                 }

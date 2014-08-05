@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Umeng;
 
 public class Player : MonoBehaviour
 {
@@ -120,6 +122,7 @@ public class Player : MonoBehaviour
             Destroy(collisionInfo.gameObject);
             Secai.recordTime();
             StartCoroutine(Wait());
+			GA.FinishLevel("MainGame");
         }
         else if (collisionInfo.gameObject.tag == "GameController")
         {
