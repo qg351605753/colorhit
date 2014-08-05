@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
 
             PlaySounds();
             Destroy(collisionInfo.gameObject);
-            Color changeColor = new Color(0, 0.686f, 1, 0);
+            Color changeColor = new Color(0, 0.6863f, 1, 1);
             renderer.material.color = changeColor;
             beishu++;
            
